@@ -30,6 +30,7 @@ brew install php54
 # Install everything else
 brew install ack
 brew install git
+brew install node
 brew install rename
 brew install tree
 
