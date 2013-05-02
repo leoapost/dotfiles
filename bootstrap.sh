@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
-cd "$(dirname "${BASH_SOURCE}")"
-git pull origin master
+#!/bin/bash
+cd "$(dirname "$0")"
+git pull
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -av --no-perms . ~
 }

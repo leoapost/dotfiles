@@ -1,6 +1,11 @@
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
+
+	# View the short SHA, short date and graph history of the latest 30 commits
+  # optionally define the number of latest commits
+	l = "!x() { git log --pretty=format:\"%C(yellow)%h %Cblue%ad %Creset%s\" --date=short -n ${1:-30} --graph; }; x"
+
 	# View the current working tree status using the short format
 	s = status -s
 	# Show the diff between the latest commit and the current state
@@ -19,10 +24,30 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+
+  # Cancel last commit
+  cancel = reset --soft HEAD~1
+
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+	# Undo a `git push`
+	undopush = push -f origin HEAD^:master
+
+
+  co = checkout
+  gb = branch
+  gl = pull
+  gp = push
+  gc = commit -a -m
+  com = commit -a -m
+  st = status
+  br = branch
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -74,5 +99,7 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
+[credential]
+  helper = osxkeychain
 [push]
 	default = simple

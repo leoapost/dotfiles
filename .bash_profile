@@ -1,5 +1,16 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+# Add `~/bin` and brew folders to the `$PATH`
+# and python's path: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
+export PATH="/usr/local/bin:/usr/local/share/python:$HOME/bin:$HOME/npm-global/bin:$HOME/bin/node-tools:/usr/local/sbin:$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
+
+
+# Run rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Run nvm node manager
+source ~/.nvm/nvm.sh
+
+# Use 0.10
+nvm use 0.10
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -25,6 +36,10 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null
 done
 
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
@@ -40,3 +55,9 @@ which grunt > /dev/null && eval "$(grunt --completion=bash)"
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+# Run Z
+. ~/code/z/z.sh
+
+# Git autocomplete
+source ~/.git-completion.bash
