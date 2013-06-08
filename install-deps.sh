@@ -19,7 +19,11 @@ npm install -g nave
 # you need the code CLI tools YOU FOOL.
 ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 
+~/.brew
 
+# https://github.com/creationix/nvm
+# install Node Version Manager
+npm install nvm
 
 # https://github.com/rupa/z
 # z, oh how i love you
