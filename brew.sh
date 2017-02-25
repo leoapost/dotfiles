@@ -106,6 +106,25 @@ brew install httpie
 brew install siege
 brew install wrk
 brew install yajl
+brew install watch
+brew install peco
+brew install docker
+brew install docker-machine
+
+# Install various apps
+brew install cask
+brew cask install ngrok
+brew cask install flux
+brew cask install skype
+brew cask install dropbox
+brew cask install google-drive
+brew cask install sublime-text3
+brew cask install virtualbox
+brew cask install slack
+brew cask install wireshark
+# A commandline Time Machine like app, but more flexible
+# brew cask install rdiff-backup
+brew tap homebrew/services
 
 # Remove outdated versions from the cellar.
 brew cleanup
