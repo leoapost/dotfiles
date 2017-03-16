@@ -113,20 +113,40 @@ brew install docker-machine
 brew install nvm
 brew install aria2
 
-# Install various apps
-brew install cask
-brew cask install ngrok
-brew cask install flux
-brew cask install skype
-brew cask install dropbox
-brew cask install google-drive
-brew cask install sublime-text3
-brew cask install virtualbox
-brew cask install slack
-brew cask install wireshark
-# A commandline Time Machine like app, but more flexible
-# brew cask install rdiff-backup
+# Install Caskroom
+brew tap caskroom/cask
+brew install brew-cask
+brew tap caskroom/versions
+
+# Install Cask packages
+apps=(
+    dropbox
+    evernote
+    firefox
+    flux
+    google-chrome
+    google-chrome-canary
+    google-drive
+    iterm2
+    ngrok
+    skype
+    slack
+    spotify
+    sublime-text3
+    transmit
+    virtualbox
+    wireshark
+    rdiff-backup
+    cyberduck
+    gitify
+)
+brew cask install "${apps[@]}"
+
+
 brew tap homebrew/services
+
+# Quick Look Plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 
 # Remove outdated versions from the cellar.
 brew cleanup
