@@ -146,7 +146,19 @@ brew cask install "${apps[@]}"
 brew tap homebrew/services
 
 # Quick Look Plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+quick_look_plugins=(
+  qlcolorcode
+  qlstephen
+  qlmarkdown
+  quicklook-json
+  qlprettypatch
+  quicklook-csv
+  betterzipql
+  qlimagesize
+  webpquicklook
+  suspicious-package
+ )
+brew cask install "${quick_look_plugins[@]}"
 
 # Remove outdated versions from the cellar.
 brew cleanup
