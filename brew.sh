@@ -110,6 +110,8 @@ brew install watch
 brew install peco
 brew install docker
 brew install docker-machine
+brew install nvm
+brew install aria2
 
 # Install various apps
 brew install cask
