@@ -25,3 +25,10 @@ else
 	fi;
 fi;
 unset doIt;
+
+# prompt to install the brew packages
+read -p "Do you want to install the brew packages? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  ./brew.sh
+fi;
