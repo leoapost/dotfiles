@@ -69,7 +69,6 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
 brew install xz
 
 # Install other useful binaries.
@@ -102,6 +101,7 @@ brew install docker
 brew install docker-machine
 brew install nvm
 brew install aria2
+brew install noti
 
 # Install Caskroom
 brew tap caskroom/cask
@@ -129,6 +129,7 @@ apps=(
     rdiff-backup
     cyberduck
     gitify
+    karabiner-elements
 )
 brew cask install "${apps[@]}"
 
