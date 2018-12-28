@@ -73,35 +73,33 @@ brew install xz
 
 # Install other useful binaries.
 brew install ack
+brew install aria2
+brew install ccat
 brew install dark-mode
 brew install git
 brew install git-lfs
+brew install httpie
 brew install imagemagick --with-webp
 brew install lynx
+brew install noti
+brew install nvm
 brew install p7zip
+brew install peco
 brew install pigz
 brew install pv
 brew install rename
+brew install siege
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install testssl
+brew install the_silver_searcher
 brew install tree
 brew install vbindiff
+brew install watch
 brew install webkit2png
-brew install zopfli
-brew install the_silver_searcher
-brew install ccat
-brew install httpie
-brew install siege
 brew install wrk
 brew install yajl
-brew install watch
-brew install peco
-brew install docker
-brew install docker-machine
-brew install nvm
-brew install aria2
-brew install noti
+brew install zopfli
 
 # Install Caskroom
 brew tap caskroom/cask
@@ -110,26 +108,36 @@ brew tap caskroom/versions
 
 # Install Cask packages
 apps=(
+    cyberduck
+    dash
+    docker
     dropbox
     evernote
     firefox
     flux
+    gitify
     google-chrome
     google-chrome-canary
     google-drive
     iterm2
+    karabiner-elements
+    keybase
+    meld
     ngrok
+    pgadmin4
+    postman
+    rdiff-backup
+    skype
     skype
     slack
     spotify
     sublime-text3
+    telegram
+    transmission
     transmit
+    vagrant
     virtualbox
     wireshark
-    rdiff-backup
-    cyberduck
-    gitify
-    karabiner-elements
 )
 brew cask install "${apps[@]}"
 
