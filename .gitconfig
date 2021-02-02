@@ -1,13 +1,28 @@
 [alias]
 
     # View abbreviated SHA, description, and history graph of the latest 20 commits
-    l = log --pretty=oneline -n 20 --graph --abbrev-commit
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    leo = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\ %C(reset)(%ar,\\ %ad)\\ %Cred%d" --decorate --date=short --graph
+    l = log --graph --pretty=oneline -n 20 --abbrev-commit
+    lol = log --graph --pretty=oneline -n 20 --abbrev-commit --decorate
+    lola = log --graph --pretty=oneline -n 20 --abbrev-commit --decorate --all
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
+    lc  = "!f() { git ll "$1"^.."$1"; }; f"
+    fl = log -u
+
+    # Basic
+    st = status
+    ci = commit
+    ca = commit -am
+    co = checkout
+    br = branch
+    r = reset
+    cp = cherry-pick
+    gr = grep -Ii
+    amend = commit --amend
 
     # View the current working tree status using the short format
     s = status -s
-    st = status
 
     # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -20,6 +35,25 @@
 
     # Clone a repository including all submodules
     c = clone --recursive
+
+    # last tag created
+    lasttag = describe --tags --abbrev=0
+
+    # conflict/merges
+    ours = "!f() { git co --ours $@ && git add $@; }; f"
+    theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+    # initial empty commit
+    empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
+
+    # reset commands
+    cancel = reset HEAD^
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+    undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
     # Commit all changes
     ca = !git add -A && git commit -av
@@ -63,6 +97,9 @@
     # List contributors with number of commits
     contributors = shortlog --summary --numbered
 
+    # list all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
     # Merge GitHub pull request on top of the current branch or,
     # if a branch name is specified, on top of the specified branch
     mpr = "!f() { \
@@ -102,6 +139,8 @@
     # Prevent showing files whose names contain non-ASCII symbols as unversioned.
     # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
     precomposeunicode = false
+      pager = diff-so-fancy | less --tabs=4 -RFX
+    editor = /usr/local/bin/vim
 
 [color]
 
